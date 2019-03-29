@@ -1,0 +1,8 @@
+DATETIME \d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3}
+JSON \{\\".*?\}
+SOMETHING .*?
+ANYTHING .*
+AFTER (\n.*)*
+
+
+# \[%{DATETIME:[@metadata][timestamp]}\]\s.*?\sRequestHeader:%{JSON:RequestHeader}\\n\[%{DATETIME:[@metadata][timestamp]}\].*\s?RequestBody:%{SOMETHING:RequestBody}\\n\[%{DATETIME:[@metadata][timestamp]}\].*?<traceback object at.*?\\n%{SOMETHING:ErrorStack}\\n\[%{DATETIME:[@metadata][timestamp]}\].*?\sOriginalResponseMsg:%{SOMETHING:ResponseMsg}\\n\[%{DATETIME:[@metadata][timestamp]}\].*\s?HTTPResult:%{ANYTHING:HTTPResult}
